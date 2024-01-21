@@ -34,9 +34,11 @@ function insertion_sort(){
 		#put key in the next spot
 		array[$(($j+1))]=$key
 	done
+
+	#print out result
+	echo ${array[@]}
 }
 
 #function call
 insertion_sort ${args[@]}
-#print out result
-echo ${array[@]}
+

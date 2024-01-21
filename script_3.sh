@@ -8,7 +8,7 @@ args="$@"
 
 #insertion sort function
 function insertion_sort(){
-	#get array as command line argument
+	#get array as function argument
 	array=($@)
 	#get size of array
 	size=${#array[@]}

@@ -40,6 +40,7 @@ first=$(($lines-9))
 
 wantsDisp=$'yes'
 
+#while the user wants more lines, keep printing more
 while [ "$wantsDisp" == yes ]
 do
    #If we hit the beginning of the file, leave the loop

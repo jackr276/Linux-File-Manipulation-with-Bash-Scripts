@@ -27,6 +27,7 @@ for file in ${dir}/*; do
         echo "**Duplicates found**${NEWLINE}"
         #display for user
         find ${dir}/ -iname $fl
+        echo "${NEWLINE}"
         read -p "Would you like to delete the duplicate file[yes/no]: " confirm
 
     fi

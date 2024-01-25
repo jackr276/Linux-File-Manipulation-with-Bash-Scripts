@@ -3,6 +3,8 @@
 
 #!bin/bash
 
+NEWLINE=$'\n'
+
 #get the user provided directory
 dir=$1
 
@@ -13,11 +15,20 @@ fi
 
 
 for file in ${dir}/*; do
-    fl=$(basename "$file")
-    echo "looking for ${fl}"
-    find ${dir}/ -iname $fl
-    if [ $($search | wc -l) -gt 1 ]; then
-        echo "here"
+    fl=$(basename "${file}")
+
+    echo "Checking if file: ${fl} has any duplicates"
+
+    #strip file down to basename for search
+    amount=$(find ${dir}/ -iname $fl | wc -l)
+
+    #If there is a duplicate, show the user
+    if [ $amount -gt 1 ]; then
+        echo "**Duplicates found**${NEWLINE}"
+        #display for user
+        find ${dir}/ -iname $fl
+        read -p "Would you like to delete the duplicate file[yes/no]: " confirm
+
     fi
 done
 

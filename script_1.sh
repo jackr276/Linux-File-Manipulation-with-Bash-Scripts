@@ -20,7 +20,7 @@ cd $dir
 echo "All files in ${dir} ${NEWLINE} "
 #list all files only
 for f in *; do
-    [ -f $f ] && echo "$f"
+    [ -f "$f" ] && echo "$f"
 done
 
 echo "${NEWLINE}"

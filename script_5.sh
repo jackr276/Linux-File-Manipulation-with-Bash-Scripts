@@ -26,14 +26,14 @@ for file in ${dir}/*; do
 
     #populate the array
     while read f; do
-        dupeArr+=($f)
-    done < <(find ${dir}/ -iname $fl)
+        dupeArr+=("$f")
+    done < <(find ${dir}/ -iname "$fl")
 
     #if there is more than one element, we found duplicates
     if [[ ${#dupeArr[@]} -gt 1 ]]; then
         echo "**Duplicates found**${NEWLINE}"
         #display for user
-        find ${dir}/ -iname $fl
+        find ${dir}/ -iname "$fl"
         echo "${NEWLINE}"
 
         #prompt user for deletion

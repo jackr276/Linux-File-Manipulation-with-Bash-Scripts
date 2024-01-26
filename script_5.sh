@@ -15,23 +15,45 @@ fi
 
 
 for file in ${dir}/*; do
+    #Could be a directory, make sure its a file, if it isn't then continue
+    [[ -f "$file" ]] || continue
+
+    #Strip to basename
     fl=$(basename "${file}")
 
     echo "Checking if file: ${fl} has any duplicates"
 
-    #strip file down to basename for search
-    amount=$(find ${dir}/ -iname $fl | wc -l)
+    #declare an array to hold duplicates
+    declare -a dupeArray=()
 
-    #If there is a duplicate, show the user
-    if [ $amount -gt 1 ]; then
+    #populate the array
+    while read f; do
+        dupeArr+=($f)
+    done < <(find ${dir}/ -iname $fl)
+
+    echo ${dupeArr[@]}
+    echo ${#dupeArr[@]}
+
+    #if there is more than one element, we found duplicates
+    if [[ ${#dupeArr[@]} -gt 1 ]]; then
         echo "**Duplicates found**${NEWLINE}"
         #display for user
         find ${dir}/ -iname $fl
         echo "${NEWLINE}"
-        read -p "Would you like to delete the duplicate file[yes/no]: " confirm
 
+        #prompt user for deletion
+        read -p "Would you like to delete duplicate files[yes/no]: " confirm
+
+        #if yes, delete everything that isn't index 0 in the array
+        if [[ "$confirm" == "yes" ]]; then
+            #delete everything past index 1
+            for (( i=1; i<${#dupeArr[@]}; i++ )); do
+               rm "${dupeArr[$i]}"
+            done
+            echo "All duplicates of ${fl} have been deleted${NEWLINE}"
+        fi
     fi
+
+    #wipe array every iteration
+    dupeArr=()
 done
-
-
-

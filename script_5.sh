@@ -21,8 +21,6 @@ for file in ${dir}/*; do
     #Strip to basename
     fl=$(basename "${file}")
 
-    echo "Checking if file: ${fl} has any duplicates"
-
     #declare an array to hold duplicates
     declare -a dupeArray=()
 
@@ -30,9 +28,6 @@ for file in ${dir}/*; do
     while read f; do
         dupeArr+=($f)
     done < <(find ${dir}/ -iname $fl)
-
-    echo ${dupeArr[@]}
-    echo ${#dupeArr[@]}
 
     #if there is more than one element, we found duplicates
     if [[ ${#dupeArr[@]} -gt 1 ]]; then
@@ -57,3 +52,5 @@ for file in ${dir}/*; do
     #wipe array every iteration
     dupeArr=()
 done
+
+echo "No additional duplicate files found${NEWLINE}"

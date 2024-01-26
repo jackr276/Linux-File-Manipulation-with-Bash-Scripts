@@ -15,11 +15,14 @@ if [ ! -d $dir ]; then
 fi
 
 #move into the directory, now that we know its validity
-cd ./$dir
+cd $dir
 
 echo "All files in ${dir} ${NEWLINE} "
-#list all the files
-ls -1
+#list all files only
+for f in *; do
+    [ -f $f ] && echo "$f"
+done
+
 echo "${NEWLINE}"
 
 read -p "Please select a file: " fname

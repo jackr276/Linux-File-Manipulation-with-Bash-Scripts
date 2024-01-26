@@ -11,7 +11,11 @@ if [[ ! -d $dir ]]; then
     exit 0
 fi
 
+#Make an array to hold all entries(directories and file names)
+declare -a entries=()
 
-
-
+#get all of the entries, put them in an array
+while read e; do
+    entries+=("$e")
+done < <(ls -1 $dir)
 

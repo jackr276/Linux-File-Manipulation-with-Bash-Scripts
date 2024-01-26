@@ -19,3 +19,34 @@ while read e; do
     entries+=("$e")
 done < <(ls -1 $dir)
 
+function reverse(){
+   #get array as function argument
+   array=($@)
+   #get size of array
+   size=${#array[@]}
+
+   #insertion sort but backwards
+   for (( i=1; i < $size; i++ )); do
+       #get the element as a key
+       key=${array[i]}
+
+       #declare j
+       let "j = $i - 1"
+   
+       #while array at j more than key, swap
+       while [[ $j -ge 0 ]] && [[ "${array[j]}" < "$key" ]]; do
+           #bring array[j] forward
+           array[$(($j+1))]=${array[j]}
+           #decrement j
+           ((j--))
+       done
+       #put key in the next spot
+       array[$(($j+1))]=$key
+   done
+
+   #print it all out
+   echo "${array[@]}"
+}
+
+#function call
+reverse ${entries[@]}

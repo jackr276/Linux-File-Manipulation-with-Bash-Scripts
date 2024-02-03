@@ -35,7 +35,7 @@ do
 done
 
 #get the number of lines
-lines=$(cat $fname | wc -l)
+lines=$(cat "$fname" | wc -l)
 
 #compute the initial first and last bounds
 last=$lines

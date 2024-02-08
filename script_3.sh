@@ -18,7 +18,7 @@ function insertion_sort(){
         key=(${array[i]})
 
         #Declare j
-        let "j = $i-1"
+        j=$(($i-1))
 
         #while j more than key, perform swap
         while [[ $j -ge 0 ]] && [[ ${array[j]} -gt $key ]]; do

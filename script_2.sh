@@ -5,16 +5,13 @@
 
 NEWLINE=$'\n'
 
-#get the directory provided as a command line argument
-dir=$1
-
-if [[ ! -d $dir ]]; then
+if [[ ! -d "$1" ]]; then
     echo "Invalid entry, no directory ${dir} found. Program will now exit."
     exit 0
 fi
 
 #get all of the entries, put them in an array
-readarray -t entries <<<"$(ls $dir)"
+entries=("$1"/*)
 
 function reverse(){
    #get array as function argument
@@ -42,7 +39,9 @@ function reverse(){
    done
 
    #print it all out
-   echo "${array[@]}"
+   for entry in "${array[@]}"; do
+        echo $(basename "${entry}")
+   done
 }
 
 #function call

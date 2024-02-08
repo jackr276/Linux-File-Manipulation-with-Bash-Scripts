@@ -15,7 +15,7 @@ declare -a seen=()
 
 #The dfs function performs a depth first tree search on the directory given
 function dfs() {
-    #if it is not a directory, or is empty, return
+    #if it is not a directory, or is empty, no point in traversing
     if [[ ! -d "$1" ]] || [[ $(ls "$1" -1 | wc -l) -eq 0 ]]; then
         return
     fi

@@ -28,7 +28,7 @@ function reverse(){
        key="${array[i]}"
 
        #declare j
-       let "j = $i - 1"
+       j=$(($i-1))
 
        #while array at j more than key, swap
        while [[ $j -ge 0 ]] && [[ "${array[j]}" < "$key" ]]; do

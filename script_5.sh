@@ -42,7 +42,7 @@ function dfs() {
                 notFound=false
 
                 #Notify user, print out the files
-                echo "****Duplicates found****${NEWLINE}"
+                echo "${NEWLINE}****Duplicates found****${NEWLINE}"
                 echo "$entry"
                 echo "$en"
 

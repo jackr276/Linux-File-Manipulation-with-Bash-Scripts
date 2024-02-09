@@ -5,6 +5,7 @@
 
 NEWLINE=$'\n'
 
+#If the entry is invalid, exit script
 if [[ ! -d "$1" ]]; then
     echo "Invalid entry, no directory ${dir} found. Program will now exit."
     exit 0
@@ -13,6 +14,7 @@ fi
 #get all of the entries, put them in an array
 entries=("$1"/*)
 
+#Use an insertion sort algorithm to sort the items in descending order
 function reverse(){
    #get array as function argument
    local -n array=$1

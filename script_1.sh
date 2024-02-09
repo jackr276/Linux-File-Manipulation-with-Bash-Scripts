@@ -25,6 +25,7 @@ done
 
 echo "${NEWLINE}"
 
+#Prompt the user for a file
 read -p "Please select a file: " fname
 
 #So long as the file choice is bad, keep prompting the user

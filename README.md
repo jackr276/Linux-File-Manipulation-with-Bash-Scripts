@@ -1,7 +1,7 @@
 # Linux file manipulation with bash scripts
 Author: [Jack Robbins](https://www.github.com/jackr276)
 
-This repository contains 5 basic bash scripts that perform file manipulation, printing and ordering in Linux.
+This repository contains 5 bash scripts that perform file manipulation, printing and ordering in Linux.
 
 ## [Script 1](https://github.com/jackr276/Linux-file-manipulation-with-bash-scripts/blob/main/script_1.sh)
 Script 1 prompts the user for the name of a directory, and upon verifying that the directory exists, displays the contents to the user. It then asks the user to

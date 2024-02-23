@@ -1,4 +1,4 @@
-# Linux file manipulation with bash scripts
+# Linux File Manipulation with Bash Scripts
 Author: [Jack Robbins](https://www.github.com/jackr276)
 
 This repository contains 5 bash scripts that perform file manipulation, printing and ordering in Linux.

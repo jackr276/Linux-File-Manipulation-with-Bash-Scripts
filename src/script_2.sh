@@ -1,7 +1,7 @@
 #Jack Robbins
 #Homework assignment 1, problem 2
 
-#!bin/bash
+#!/bin/bash
 
 NEWLINE=$'\n'
 

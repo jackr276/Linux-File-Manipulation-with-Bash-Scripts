@@ -1,7 +1,7 @@
 #Jack Robbins
 #Homework 1, problem 4
 
-#!bin/bash
+#!/bin/bash
 
 #navigate to bin directory
 cd /bin
